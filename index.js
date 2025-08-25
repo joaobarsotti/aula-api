@@ -31,6 +31,20 @@ app.put('/aluno/:id', (req, res) => {
    }
 })
 
+/*/
+app.delete('/aluno/:id', (req, res) => {
+    const { id } = req.params
+
+    const alunoIndex = alunos.findIndex(a => a.id== id)
+
+    if (alunoIndex > -1) {
+        alunos.splice(alunoIndex, 1)
+        res.status(200).json({ message: "Aluno removido com sucesso."})
+    } else {
+        res.status(404).json({message: "Aluno não encontrado."})
+    }
+})
+*/
 app.listen(port, () => {
     console.log(alunos)
 })
